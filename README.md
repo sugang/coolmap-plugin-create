@@ -18,4 +18,15 @@ This is a sample coolmap plugin to create data transformations. After loading pl
    public class CreatePlugin implements CoolMapPlugin { ... }
    
    ```  
-   in order to make it to work.
+   in order to make it to work. You may create other classes in other packages.
+6. Exit the build ant file if you would like to do other post-jar activities such as create folders or copy files. If you are using Netbeans, edit the **build-impl.xml**, -post-jar section. If you place a **config.json** file in your plugin folder, it will be loaded by the *initialize(JSONObject config)* function into a JSON config.
+7. Build the project. You should have a file called 
+8. Now go to your CoolMap plugin folder, you should have a file called **CreatePlugin.jar**.
+9. There are several ways to let CoolMap plugin. First of all, all plugin files should go into a folder named like [pluginname].plugin. (*.plugin* extension). Then this folder should be placed within the plugin folder of CoolMap. An easy way is to create a symbolic link, pointing your dist folder under CoolMap like
+   ```
+   
+   ln -s [path to your plugin folder] ./create.plugin
+   
+   ```
+
+Now, load up CoolMap. Under the Edit menu, you should see 'Edit->Create View', 'Edit->Aggregate Data'...
